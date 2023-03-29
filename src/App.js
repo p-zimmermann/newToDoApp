@@ -32,13 +32,12 @@ function App() {
   const[todos, setTodos] = useState([]);
  
   const saveTodos = todoArray => {
-   
     window.localStorage.setItem("myTodos", JSON.stringify(todoArray));
   }
   const loadTodosFromLocalStorage = () => {
-   
-    if (localStorage.getItem("myTodos") !== null) 
-      return JSON.parse(localStorage.getItem("myTodos"));
+    if (localStorage.getItem("myTodos") !== null) {
+      console.warn(localStorage.getItem("myTodos"));
+      return JSON.parse(localStorage.getItem("myTodos"));}
     else return [];
   }
   // UseEffects
@@ -48,17 +47,17 @@ function App() {
 
   useEffect(() => {
     const storage = loadTodosFromLocalStorage();
-    //console.log(storage);
+    console.warn(storage);
     setTodos(storage);
   }, []);
-/* 
+
   useEffect(() => {
     window.addEventListener("load", (e)=>{
       e.preventDefault()
       const storage = loadTodosFromLocalStorage();
       setTodos(storage);
     })
-  }) */
+  })
 
   return (
     <div className="App">

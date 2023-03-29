@@ -9,9 +9,9 @@ const ListItem = ({setTodos, todos, text, id} ) => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     return (
         <>
-       {/*  <Checkbox {...label} /> */}
+        
         <div className='list-item'> 
-        <input type="checkbox" className='checkbox'/>
+            <Checkbox {...label} /> 
             <li className='list-todo' id={id}>
                 {text}
                 <FcFullTrash onClick={deleteTodo} />
